@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Zipperman Law — Family Law • Mediation • Collaborative</title>
+  <meta name="description" content="Over 35 years of experience in California family law — mediation, collaborative practice, prenups/postnups, divorce, custody, and support. Los Angeles • Virtual consultations across California."/>
+  <style>
+    :root{
+      --navy:#1e3a8a; --navy-2:#1e40af; --sky:#0ea5e9; --ink:#0f172a;
+      --muted:#334155; --bg:#f8fafc; --card:#ffffff; --border:#e2e8f0; --accent:#eff6ff;
+      --grad:linear-gradient(90deg,#1e3a8a,#0ea5e9);
+      --bar:linear-gradient(90deg,#93c5fd,#3b82f6);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;line-height:1.6;color:var(--ink);background:linear-gradient(180deg,#f8fafc,#f1f5f9)}
+    img{max-width:100%;height:auto}
+    a{color:var(--navy-2);text-decoration:none}
+    a.underline{text-decoration:underline}
+    .container{max-width:1120px;margin-inline:auto;padding-inline:20px}
+
+    /* Topline */
+    .topline{background:var(--sky);color:#fff;font-size:.85rem}
+    .topline .container{display:flex;justify-content:space-between;align-items:center;padding:.4rem 20px}
+
+    /* Header */
+    header.site{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand .name{font-weight:800}
+    .brand small{display:block;color:#475569}
+    .navlinks{display:none;gap:18px;align-items:center}
+    @media(min-width:980px){.navlinks{display:flex}}
+    .navlinks a{padding:6px 8px;border-radius:8px}
+    .navlinks a.active{background:#eef2ff;color:#1e3a8a}
+    .btn{display:inline-block;border:0;border-radius:999px;padding:.75rem 1.1rem;font-weight:700;cursor:pointer}
+    .btn.primary{color:#fff;background:var(--grad)}
+    .btn.ghost{color:var(--navy);background:#fff;border:1px solid var(--navy)}
+    .btn.small{padding:.55rem .9rem;font-weight:600}
+
+    /* Common */
+    .chip{display:inline-block;border-radius:999px;background:var(--accent);padding:.35rem .7rem;font-size:.8rem;color:var(--navy);border:1px solid #dbeafe}
+    .section{padding-block:56px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:18px;box-shadow:0 2px 12px rgba(2,6,23,.04)}
+    .grid{display:grid;gap:18px}
+    .grid.two{grid-template-columns:1fr}
+    .grid.three{grid-template-columns:1fr}
+    @media(min-width:740px){.grid.two{grid-template-columns:1fr 1fr}.grid.three{grid-template-columns:repeat(3,1fr)}}
+    .hero{background:linear-gradient(120deg,var(--navy),var(--navy-2));color:#fff}
+    .hero .container{display:grid;gap:28px;grid-template-columns:1fr;align-items:center;padding-block:56px}
+    @media(min-width:980px){.hero .container{grid-template-columns:1.2fr .8fr;padding-block:72px}}
+    .hero h1{font-size:2.2rem;margin:0}
+    @media(min-width:720px){.hero h1{font-size:2.7rem}}
+    .kicker{letter-spacing:.1em;text-transform:uppercase;opacity:.9;font-size:.8rem}
+    .lead{font-size:1.05rem;opacity:.95}
+    .headshot{width:320px;height:320px;border-radius:24px;object-fit:cover;border:4px solid rgba(255,255,255,.35);box-shadow:0 12px 28px rgba(2,6,23,.3);margin-inline:auto}
+    .h2{font-size:1.7rem;margin:0}
+    .h3{font-size:1.2rem;margin:0}
+    .muted{color:var(--muted)}
+    .notice{font-size:.85rem;color:#475569}
+    .map{width:100%;height:300px;border:0}
+    footer{border-top:1px solid var(--border);background:#fff}
+
+    /* Badges */
+    .badge-row{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;place-items:center}
+    @media(min-width:740px){.badge-row{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}}
+    .badge{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px}
+    .badge .circle{width:64px;height:64px;border-radius:999px;background:#fff;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 1px 6px rgba(2,6,23,.06)}
+    .badge .rect{width:164px;height:92px;border-radius:14px;background:#fff;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 1px 6px rgba(2,6,23,.06)}
+    .badge .circle img,.badge .rect img{max-width:90%;max-height:90%;object-fit:contain;display:block}
+    .badge label{font-size:.7rem;color:#475569}
+    .badge label .role{display:block;font-size:.68rem;color:#64748b}
+
+    /* Forms */
+    form label{display:block;margin:8px 0 6px;font-weight:600}
+    form input, form textarea, form select{width:100%;padding:.7rem .9rem;border:1px solid var(--border);border-radius:12px}
+
+    /* Gantt */
+    .gantt{margin-top:10px}
+    .gantt .row{display:grid;grid-template-columns:260px 1fr;align-items:center;gap:14px;margin:12px 0}
+    .gantt .label{font-weight:600;color:#1f2937}
+    .gantt .track{position:relative;height:18px;background:#e5e7eb;border-radius:999px;overflow:hidden}
+    .gantt .bar{position:absolute;left:0;top:0;bottom:0;border-radius:999px;background:var(--bar)}
+    .gantt .bar .dur{position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:.75rem;color:#fff;font-weight:700}
+    .gantt .legend{display:flex;gap:16px;font-size:.85rem;color:#475569;margin-top:8px}
+  </style>
+</head>
+<body>
+  <!-- TOPLINE -->
+  <div class="topline">
+    <div class="container">
+      <div>Los Angeles • <strong>Statewide Zoom consultations</strong></div>
+      <div><a class="underline" href="#/contact">Contact Barbara's Office</a></div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site">
+    <div class="container nav">
+      <a class="brand" href="#/" aria-label="Zipperman Law — Home">
+        <img src="https://www.zippermanlaw.com/wp-content/uploads/2025/02/barbara-new-headshot.jpg" alt="Barbara Irshay Zipperman headshot" style="width:40px;height:40px;border-radius:999px;object-fit:cover;border:1px solid var(--border)"/>
+        <div>
+          <div class="name">Zipperman Law</div>
+          <small>Los Angeles • Statewide Zoom consultations</small>
+        </div>
+      </a>
+      <nav class="navlinks" aria-label="Primary">
+        <a href="#/" data-route="/">About</a>
+        <a href="#/approach" data-route="/approach">Approach</a>
+        <a href="#/mediation" data-route="/mediation">Mediation</a>
+        <a href="#/prenups" data-route="/prenups">Prenups</a>
+        <a href="#/divorce" data-route="/divorce">Divorce</a>
+        <a href="#/services" data-route="/services">All Services</a>
+        <a href="#/resources" data-route="/resources">Resources</a>
+        <a href="#/referrals" data-route="/referrals">Referrals</a>
+        <a href="#/payments" data-route="/payments">Payments</a>
+        <a class="btn primary" href="#/contact" data-route="/contact">Contact Barbara's Office</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- APP MOUNT -->
+  <main id="app" role="main"></main>
+
+  <footer class="section" role="contentinfo">
+    <div class="container grid two">
+      <div>
+        <div class="h3">Zipperman Law</div>
+        <div class="muted">Family Law • Mediation • Collaborative</div>
+        <div class="notice" style="margin-top:8px">Attorney Advertising. Past results do not guarantee future outcomes.</div>
+      </div>
+      <div>
+        <div class="h3">Disclaimer</div>
+        <p class="notice">This website provides general information only and does not constitute legal advice. Viewing this site, using information, or submitting a form does not create an attorney–client relationship.</p>
+      </div>
+    </div>
+    <div class="container notice" style="margin-top:10px">© <span id="yr"></span> The Law & Mediation Offices of Barbara Irshay Zipperman, APC</div>
+  </footer>
+
+  <script>
+    const INTAKE_EMAIL = "barbara@zippermanlaw.com";
+
+    // ------- Router -------
+    const routes = {
+      '/': renderHome,
+      '/approach': renderApproach,
+      '/mediation': () => renderService('Mediation (Consensual Dispute Resolution)', mediationBody(), ganttFor('mediation')),
+      '/prenups': () => renderService('Prenuptial & Postnuptial Agreements', prenupsBody(), ganttFor('prenups')),
+      '/divorce': () => renderService('Divorce', divorceBody(), ganttFor('divorce')),
+      '/services': renderServices,
+      '/resources': renderResources,
+      '/referrals': renderReferrals,
+      '/payments': renderPayments,
+      '/contact': () => renderHome(true)
+    };
+
+    function setActive(path){
+      document.querySelectorAll('.navlinks a').forEach(a=>{
+        a.classList.toggle('active', a.getAttribute('data-route')===path);
+      });
+    }
+
+    function render(){
+      const hash = location.hash.replace(/^#/, '') || '/';
+      const path = hash.split('?')[0];
+      (routes[path] || renderHome)();
+      setActive(path);
+    }
+
+    window.addEventListener('hashchange', render);
+    window.addEventListener('DOMContentLoaded', () => {
+      render();
+      document.getElementById('yr').textContent = new Date().getFullYear();
+    });
+
+    // ------- Shared pieces -------
+    function quickServiceButtons(){
+      /* Contact now sits inline with the three service buttons */
+      return `
+        <div class="row" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+          <a class="btn ghost" href="#/mediation">Mediation</a>
+          <a class="btn ghost" href="#/prenups">Prenups / Postnups</a>
+          <a class="btn ghost" href="#/divorce">Divorce</a>
+          <a class="btn primary" href="#/contact">Contact Barbara's Office</a>
+        </div>`;
+    }
+
+    function logoRow(){
+      return `
+      <section class="section" aria-label="Credentials and associations" style="background:#ffffffcc">
+        <div class="container">
+          <div class="badge-row">
+            <a class="badge" href="https://sfvba.org/" target="_blank" rel="noreferrer" title="San Fernando Valley Family Law Association (under SFVBA)">
+              <span class="circle"><img src="https://sfvba.org/images/logo-dark.png" alt="SFVFLA (SFVBA)"/></span>
+              <label>SFVFLA<span class="role">President</span></label>
+            </a>
+            <a class="badge" href="https://x.com/lacfla" target="_blank" rel="noreferrer" title="Los Angeles Collaborative Family Law Association">
+              <span class="circle"><img src="https://pbs.twimg.com/profile_images/1656020043493441537/8p7kvXnq_400x400.jpg" alt="LACFLA"/></span>
+              <label>LACFLA<span class="role">Member</span></label>
+            </a>
+            <a class="badge" href="https://www.facebook.com/familydivorcesolutions/" target="_blank" rel="noreferrer" title="Family Divorce Solutions of San Fernando Valley">
+              <span class="circle"><img src="https://familydivorcesolutions.com/wp-content/uploads/2020/10/cpc-logo.png" alt="Family Divorce Solutions of SFV"/></span>
+              <label>Family Divorce Solutions<span class="role">Immediate Past President</span></label>
+            </a>
+            <a class="badge" href="https://cpcal.com/" target="_blank" rel="noreferrer" title="Collaborative Practice California (CPCal)">
+              <span class="rect"><img src="https://cpcal.com/images/cpcal-header-logo-with-tag.jpg" alt="Collaborative Practice California (CPCal)"/></span>
+              <label>CPCal<span class="role">Member</span></label>
+            </a>
+            <a class="badge" href="https://www.calbar.ca.gov/" target="_blank" rel="noreferrer" title="State Bar of California">
+              <span class="circle"><img src="https://www.zippermanlaw.com/wp-content/uploads/2019/10/State-Bar-of-CA.png" alt="State Bar of CA"/></span>
+              <label>State Bar of CA<span class="role">Member</span></label>
+            </a>
+            <a class="badge" href="https://www.martindale.com/ratings-and-reviews/" target="_blank" rel="noreferrer" title="Martindale-Hubbell AV Preeminent">
+              <span class="circle"><img src="https://www.zippermanlaw.com/wp-content/uploads/2019/10/AV-Logo.png" alt="Martindale-Hubbell AV Preeminent"/></span>
+              <label>AV Preeminent<span class="role">Peer-reviewed rating</span></label>
+            </a>
+            <a class="badge" href="https://www.superlawyers.com/" target="_blank" rel="noreferrer" title="Super Lawyers">
+              <span class="circle"><img src="https://www.zippermanlaw.com/wp-content/uploads/2019/10/superlawyers.png" alt="Super Lawyers"/></span>
+              <label>Super Lawyers<span class="role">Selected</span></label>
+            </a>
+          </div>
+          <p class="notice" style="text-align:center;margin-top:10px">CPCal = <strong>Collaborative Practice California</strong> — statewide organization for collaborative professionals.</p>
+        </div>
+      </section>`;
+    }
+
+    function prepSection(){
+      return `
+      <section class="section" id="prep" style="background:#f8fbff">
+        <div class="container grid two">
+          <div>
+            <h2 class="h2">How to Prepare for Your Consultation</h2>
+            <ul class="list">
+              <li>Key dates: marriage, separation, children’s birthdays</li>
+              <li>Financials: tax returns, pay stubs, bank/investment statements, debts</li>
+              <li>Housing: mortgage/lease, monthly costs, who resides where</li>
+              <li>Children: schedules, school, special needs, childcare costs</li>
+              <li>Your goals & top questions for Barbara</li>
+            </ul>
+          </div>
+          <div class="card" style="padding:18px;background:linear-gradient(180deg,#eff6ff,white)">
+            <div class="h3">What to Expect</div>
+            <ul class="list">
+              <li>Brief background, immediate concerns, safety/privacy check</li>
+              <li>Process options with candid pros/cons</li>
+              <li>Preliminary timeline and near-term tasks</li>
+              <li>Referrals to trusted specialists if helpful</li>
+            </ul>
+          </div>
+        </div>
+      </section>`;
+    }
+
+    function ganttChart(phases){
+      const total = phases.reduce((s,p)=>s+p.weeks,0) || 1;
+      const rows = phases.map(p=>{
+        const pct = Math.round((p.weeks/total)*100);
+        return `
+          <div class="row">
+            <div class="label">${p.name}</div>
+            <div class="track" aria-hidden="true">
+              <div class="bar" style="width:${pct}%">
+                <span class="dur">~${p.weeks} wk${p.weeks!==1?'s':''}</span>
+              </div>
+            </div>
+          </div>`;
+      }).join('');
+      return `
+        <section class="section" style="background:#fff">
+          <div class="container">
+            <h2 class="h2">Timeline (Gantt Overview)</h2>
+            <div class="gantt" role="img" aria-label="Timeline of phases and durations">
+              ${rows}
+              <div class="legend"><span>≈ ${total} weeks total</span><span>Bars indicate relative duration</span></div>
+            </div>
+          </div>
+        </section>`;
+    }
+
+    function ganttFor(which){
+      if(which==='mediation'){
+        return ganttChart([
+          {name:'Intake & Safety Check', weeks:1},
+          {name:'Disclosures', weeks:3},
+          {name:'Mediation Sessions', weeks:4},
+          {name:'Draft & Review', weeks:2},
+          {name:'File & Finalize', weeks:1}
+        ]);
+      }
+      if(which==='prenups'){
+        return ganttChart([
+          {name:'Strategy & Terms', weeks:1},
+          {name:'Financial Disclosure', weeks:2},
+          {name:'Draft', weeks:1},
+          {name:'Review & Negotiation', weeks:2},
+          {name:'Execution', weeks:1}
+        ]);
+      }
+      if(which==='divorce'){
+        return ganttChart([
+          {name:'File/Serve & Temporary Orders', weeks:2},
+          {name:'Disclosures/Discovery', weeks:6},
+          {name:'Negotiation/Mediation', weeks:6},
+          {name:'Judgment Papers', weeks:3},
+          {name:'Waiting Period (CA Minimum)', weeks:24}
+        ]);
+      }
+      return '';
+    }
+
+    // ------- Pages -------
+    function renderHome(jumpToContact=false){
+      const app = document.getElementById('app');
+      app.innerHTML = `
+        <section class="hero" role="region" aria-label="Welcome">
+          <div class="container">
+            <div>
+              <div class="kicker">Candor and Compassion</div>
+              <h1>Over 35 years of experience in California family law</h1>
+              <p class="lead">Clear advice. Practical options. Respectful processes that help you move forward—prioritizing mediation and collaborative solutions whenever possible.</p>
+              ${quickServiceButtons()}
+              <p class="notice" style="margin-top:6px">Complimentary 15-minute consultation for mediation inquiries. Zoom available statewide.</p>
+              <div class="badge-list mt-3" aria-label="Focus areas" style="margin-top:10px">
+                <span class="chip">Mediation</span>
+                <span class="chip">Collaborative Law</span>
+                <span class="chip">Prenuptial & Postnuptial Agreements</span>
+                <span class="chip">Divorce • Custody • Support</span>
+              </div>
+            </div>
+            <div class="center" style="text-align:center">
+              <img class="headshot" src="https://www.zippermanlaw.com/wp-content/uploads/2025/02/barbara-new-headshot.jpg" alt="Portrait of Barbara Irshay Zipperman"/>
+              <div style="margin-top:16px"><a class="btn primary" href="#/approach">Learn about Barbara's Pragmatic and Compassionate Approach</a></div>
+            </div>
+          </div>
+        </section>
+        ${logoRow()}
+        <section id="about" class="section" aria-label="About Barbara">
+          <div class="container grid two">
+            <div>
+              <h2 class="h2">Barbara Irshay Zipperman</h2>
+              <p class="muted">For over three decades, Barbara has helped Los Angeles families resolve matters with dignity. She provides candid counsel and practical options, prioritizing consensual dispute resolution when possible and advocating effectively in court when necessary.</p>
+              <div class="h3" style="margin-top:10px">Leadership & affiliations</div>
+              <ul class="list">
+                <li>President, San Fernando Valley Family Law Association</li>
+                <li>Immediate Past President & Executive Committee, Family Divorce Solutions of San Fernando Valley</li>
+                <li>Member, Los Angeles Collaborative Family Law Association</li>
+                <li>Member, Collaborative Practice California (CPCal)</li>
+                <li>Member, State Bar of California</li>
+              </ul>
+            </div>
+            <div class="card" style="padding:18px">
+              <img src="https://www.zippermanlaw.com/wp-content/uploads/2025/02/barbara-new-headshot.jpg" alt="Barbara Irshay Zipperman" style="border-radius:12px"/>
+              <div style="margin-top:10px">
+                <strong>Office</strong>
+                <div class="muted">16133 Ventura Blvd, Suite 685, Encino, CA 91436</div>
+                <div class="muted">(818) 995-8600</div>
+                <div class="notice">By appointment only • Virtual consults available statewide</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+      if(jumpToContact){
+        alert("Use the ‘Contact Barbara’s Office’ button at the top to reach the form. (Forms live on each service page.)");
+      }
+    }
+
+    function renderApproach(){
+      const app = document.getElementById('app');
+      app.innerHTML = `
+        <section class="hero"><div class="container">
+          <div>
+            <div class="kicker">Approach</div>
+            <h1>Pragmatic, Compassionate, Resolution-First</h1>
+            <p class="lead">Barbara’s practice is built on candor and compassion. She gives clear, realistic guidance and favors respectful, out-of-court paths before litigation.</p>
+            ${quickServiceButtons()}
+          </div>
+          <div class="center"><img class="headshot" src="https://www.zippermanlaw.com/wp-content/uploads/2025/02/barbara-new-headshot.jpg" alt="Barbara"/></div>
+        </div></section>
+
+        <section class="section"><div class="container grid two">
+          <div>
+            <h2 class="h2">Guiding Principles</h2>
+            <ul class="list">
+              <li><strong>Candor:</strong> Plain-English advice, including risks and trade-offs.</li>
+              <li><strong>Compassion:</strong> A calm, respectful process designed to lower conflict and protect children.</li>
+              <li><strong>Practicality:</strong> Durable solutions and future stability.</li>
+              <li><strong>Privacy:</strong> Resolve matters outside of court whenever possible.</li>
+            </ul>
+
+            <h2 class="h2" style="margin-top:14px">Consensual Dispute Resolution (CDR)</h2>
+            <p class="muted">CDR includes <em>mediation</em> and <em>collaborative practice</em>—voluntary, private processes that keep decisions with the family rather than the court.</p>
+
+            <div class="card" style="padding:16px;margin-top:10px">
+              <div class="h3">Mediation gives you control</div>
+              <p class="muted">Barbara can act as a neutral mediator for both parties, or as counsel to one party in a separate mediation. Sessions are structured, child-centered, and focused on practical agreement.</p>
+            </div>
+
+            <div class="card" style="padding:16px;margin-top:10px">
+              <div class="h3">Collaborative practice (team-based)</div>
+              <p class="muted">When helpful, a trained team supports the process:</p>
+              <ul class="list">
+                <li><strong>Financial neutral (CDFA®)</strong> — budgets, support models, asset division</li>
+                <li><strong>Coach / communications specialist</strong> — tools for productive, low-conflict dialogue</li>
+                <li><strong>Child specialist</strong> — developmentally appropriate input for parenting plans</li>
+                <li><strong>Consulting experts</strong> — tax, valuation, real estate, lending, and more as needed</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card" style="padding:18px">
+            <div class="h3">Training & Recognition</div>
+            <ul class="list">
+              <li>Extensive mediation training (120+ hours)</li>
+              <li>Volunteer family-law mediator for Los Angeles Superior Court (commendation)</li>
+              <li>Experienced using both mediation and collaborative law to resolve contentious issues</li>
+            </ul>
+            <div class="h3" style="margin-top:10px">Working Together</div>
+            <ol class="list" style="padding-left:1.2rem">
+              <li>Intro call to confirm fit and safety/privacy needs</li>
+              <li>Goal setting and process selection (mediation, collaborative, or litigation)</li>
+              <li>Scope, fees, and retainer via secure billing</li>
+              <li>Disclosure checklist and document exchange</li>
+              <li>Working sessions (or court milestones) with clear action items</li>
+              <li>Drafting and review of agreements or orders</li>
+              <li>Filing, implementation, and follow-up</li>
+            </ol>
+          </div>
+        </div></section>
+      `;
+    }
+
+    function renderService(serviceName, bodyHtml, ganttHtml){
+      const app = document.getElementById('app');
+      app.innerHTML = `
+        <section class="hero">
+          <div class="container">
+            <div>
+              <div class="kicker">${serviceName.includes('Prenuptial')?'Planning':'Consensual Resolution'}</div>
+              <h1>${serviceName}</h1>
+              <p class="lead">${serviceLead(serviceName)}</p>
+              ${quickServiceButtons()}
+            </div>
+            <div class="center"><img class="headshot" src="https://www.zippermanlaw.com/wp-content/uploads/2025/02/barbara-new-headshot.jpg" alt="Barbara"/></div>
+          </div>
+        </section>
+
+        <section class="section" style="background:#fff">
+          <div class="container grid two">
+            <div>${bodyHtml}</div>
+            <div class="card" style="padding:18px">
+              <div class="h3">Helpful Links</div>
+              ${helpfulLinksFor(serviceName)}
+            </div>
+          </div>
+        </section>
+
+        ${ganttHtml}
+
+        ${prepSection()}
+
+        <section class="section" style="background:#fff">
+          <div class="container">
+            <div class="card" style="padding:18px">
+              ${inlineContact(serviceName)}
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function serviceLead(name){
+      if(name.startsWith('Mediation')) return 'A structured, respectful process that keeps decisions with your family—outside of court. Barbara can serve as a neutral mediator or counsel to one party.';
+      if(name.startsWith('Prenuptial')) return 'Thoughtful planning that clarifies expectations, supports transparency, and reduces future uncertainty.';
+      if(name==='Divorce') return 'Candid advice on process options, likely timelines, and how best to protect your interests.';
+      return '';
+    }
+
+    function helpfulLinksFor(name){
+      if(name.startsWith('Mediation')){
+        return `<ul class="list">
+          <li><a class="underline" target="_blank" rel="noreferrer" href="https://selfhelp.courts.ca.gov/child-custody/what-to-expect-mediation">CA Courts — What to expect in mediation</a></li>
+          <li><a class="underline" target="_blank" rel="noreferrer" href="https://www.collaborativepractice.com/">Collaborative Practice (IACP)</a></li>
+        </ul>`;
+      }
+      if(name.startsWith('Prenuptial')){
+        return `<ul class="list">
+          <li><a class="underline" target="_blank" rel="noreferrer" href="https://selfhelp.courts.ca.gov/marriage/prenuptial-agreements">CA Courts — Prenuptial Agreements</a></li>
+          <li><a class="underline" target="_blank" rel="noreferrer" href="https://selfhelp.courts.ca.gov/divorce-forms">CA Courts — Divorce Forms (context)</a></li>
+        </ul>`;
+      }
+      if(name==='Divorce'){
+        return `<ul class="list">
+          <li><a class="underline" target="_blank" rel="noreferrer" href="https://selfhelp.courts.ca.gov/divorce-california">CA Courts — Divorce Guide</a></li>
+          <li><a class="underline" target="_blank" rel="noreferrer" href="https://selfhelp.courts.ca.gov/divorce-forms">CA Courts — Forms</a></li>
+        </ul>`;
+      }
+      return '';
+    }
+
+    // ------- Service bodies -------
+    function mediationBody(){
+      return `
+        <div class="h3">How mediation works</div>
+        <ul class="list">
+          <li>Goal-setting, safety/privacy check, and choice of full or shuttle mediation</li>
+          <li>Exchange of initial and updated disclosures (income, assets, debts)</li>
+          <li>Focused sessions to resolve parenting plans, support, and property</li>
+          <li>Drafting of MOU/Settlement, independent review if desired, then filing</li>
+        </ul>
+        <div class="h3" style="margin-top:10px">When mediation is a good fit</div>
+        <ul class="list">
+          <li>Both parties want privacy and a say in timing/outcomes</li>
+          <li>There’s willingness to exchange information transparently</li>
+          <li>Parents want child-centered plans and practical handoffs</li>
+        </ul>`;
+    }
+
+    function prenupsBody(){
+      return `
+        <div class="h3">What we cover</div>
+        <ul class="list">
+          <li>Financial disclosure and timing best practices</li>
+          <li>Community/separate property expectations; title and tracing issues</li>
+          <li>Support expectations; fairness and enforceability considerations</li>
+          <li>Cross-border assets and complex compensation (RSUs, carried interest)</li>
+        </ul>
+        <div class="h3" style="margin-top:10px">Process</div>
+        <ul class="list">
+          <li>Strategy consult → term sheet → full disclosures</li>
+          <li>Attorney drafting and independent counsel for each party</li>
+          <li>Review period and signing formalities (start early!)</li>
+        </ul>`;
+    }
+
+    function divorceBody(){
+      return `
+        <div class="h3">Key topics</div>
+        <ul class="list">
+          <li>Filing strategy and California’s mandatory 6-month waiting period</li>
+          <li>Financial disclosures; temporary orders for support/parenting if needed</li>
+          <li>Negotiation and settlement conferences; mediation/collaborative options</li>
+          <li>Judgment, QDROs/asset division logistics, and post-judgment modifications</li>
+        </ul>`;
+    }
+
+    // ------- Services index -------
+    function renderServices(){
+      const app = document.getElementById('app');
+      app.innerHTML = `
+        <section class="hero"><div class="container"><div>
+          <div class="kicker">Overview</div>
+          <h1>All Services</h1>
+          <p class="lead">Mediation & collaborative solutions whenever possible; litigation when necessary.</p>
+          ${quickServiceButtons()}
+        </div><div class="center"><img class="headshot" src="https://www.zippermanlaw.com/wp-content/uploads/2025/02/barbara-new-headshot.jpg" alt="Barbara"/></div></div></section>
+
+        <section class="section"><div class="container grid two">
+          <div>
+            <div class="h3">Consensual Dispute Resolution</div>
+            <div class="grid three" style="margin-top:10px">
+              <div class="card" style="padding:16px"><strong>Mediation</strong><p class="muted">Guided conversations to reach agreement outside court.</p><a class="underline" href="#/mediation">Learn more</a></div>
+              <div class="card" style="padding:16px"><strong>Collaborative Divorce</strong><p class="muted">Team-based, problem-solving approach focused on durable agreements and privacy.</p><a class="underline" href="#/mediation">Learn more</a></div>
+              <div class="card" style="padding:16px"><strong>Prenuptial & Postnuptial Agreements</strong><p class="muted">Clear agreements to reduce uncertainty and reflect shared goals.</p><a class="underline" href="#/prenups">Learn more</a></div>
+            </div>
+          </div>
+          <div>
+            <div class="h3">Family Law Services</div>
+            <div class="grid three" style="margin-top:10px">
+              <div class="card" style="padding:16px"><strong>Divorce</strong><p class="muted">Candid advice and planning.</p><a class="underline" href="#/divorce">Learn more</a></div>
+              <div class="card" style="padding:16px"><strong>Child Custody & Parenting Plans</strong><p class="muted">Age-appropriate schedules centered on children’s needs.</p></div>
+              <div class="card" style="padding:16px"><strong>Child & Spousal Support</strong><p class="muted">Guideline basics, negotiation, and modifications.</p></div>
+              <div class="card" style="padding:16px"><strong>Modifications (Post-Judgment)</strong><p class="muted">Evaluate changes and pursue practical updates.</p></div>
+            </div>
+          </div>
+        </div></section>
+      `;
+    }
+
+    // ------- Resources / Referrals / Payments -------
+    function renderResources(){
+      const app = document.getElementById('app');
+      app.innerHTML = `
+        <section class="hero"><div class="container"><div>
+          <div class="kicker">Guides</div><h1>Helpful Resources</h1>
+          <p class="lead">Curated links for California family law and consensual dispute resolution.</p></div><div></div></div></section>
+        <section class="section"><div class="container grid two">
+          <div class="card" style="padding:16px">
+            <ul class="list">
+              <li><a class="underline" href="https://selfhelp.courts.ca.gov/" target="_blank" rel="noreferrer">California Courts — Self-Help</a></li>
+              <li><a class="underline" href="https://selfhelp.lacourt.org/" target="_blank" rel="noreferrer">LA Superior Court — Self-Help Center</a></li>
+              <li><a class="underline" href="https://www.collaborativepractice.com/" target="_blank" rel="noreferrer">Collaborative Practice — IACP</a></li>
+              <li><a class="underline" href="https://selfhelp.courts.ca.gov/divorce-forms" target="_blank" rel="noreferrer">California Courts — Divorce Forms</a></li>
+              <li><a class="underline" href="https://selfhelp.courts.ca.gov/marriage/prenuptial-agreements" target="_blank" rel="noreferrer">California Courts — Prenuptial Agreements</a></li>
+              <li><a class="underline" href="https://selfhelp.courts.ca.gov/child-custody/what-to-expect-mediation" target="_blank" rel="noreferrer">California Courts — Child Custody Mediation Expectations</a></li>
+            </ul>
+          </div>
+          ${logoRow()}
+        </div></section>
+      `;
+    }
+
+    function renderReferrals(){
+      const app = document.getElementById('app');
+      app.innerHTML = `
+        <section class="hero"><div class="container"><div>
+          <div class="kicker">Network</div><h1>Professional Network & Referrals</h1>
+          <p class="lead">Depending on your needs, Barbara can recommend trusted, independent specialists. Referrals are suggested based on fit — there’s no compensation for referrals and you are free to choose anyone you like.</p>
+          <a class="btn primary" href="#/contact">Contact Barbara's Office</a>
+        </div><div class="center"><img class="headshot" src="https://www.zippermanlaw.com/wp-content/uploads/2025/02/barbara-new-headshot.jpg" alt="Barbara"/></div></div></section>
+
+        <section class="section"><div class="container">
+          <h2 class="h2">Common Referral Categories</h2>
+          <div class="grid three" style="margin-top:10px">
+            <div class="card" style="padding:16px"><strong>Financial Neutrals (CDFA®)</strong><div class="muted">Budgets, cash flow, support models, asset division</div></div>
+            <div class="card" style="padding:16px"><strong>Child & Family Therapists</strong><div class="muted">Transitions, co-parenting communication, child specialists</div></div>
+            <div class="card" style="padding:16px"><strong>Co-Parenting Coaches</strong><div class="muted">Tools for communication & age-appropriate schedules</div></div>
+            <div class="card" style="padding:16px"><strong>CPAs & Tax Advisors</strong><div class="muted">Tax impacts of support and property division</div></div>
+            <div class="card" style="padding:16px"><strong>Forensic Accountants</strong><div class="muted">Tracing, valuations, income analyses</div></div>
+            <div class="card" style="padding:16px"><strong>Real-Estate Professionals</strong><div class="muted">Sale vs. buy-out, lending & mortgage options</div></div>
+            <div class="card" style="padding:16px"><strong>Appraisers & Valuation Experts</strong><div class="muted">Independent valuations of homes, businesses, or personal property</div></div>
+            <div class="card" style="padding:16px"><strong>Estate Planning Attorneys</strong><div class="muted">Wills, trusts, and beneficiary updates post-judgment</div></div>
+            <div class="card" style="padding:16px"><strong>Safety & Support Resources</strong><div class="muted">Domestic violence support, substance use resources, and community services</div></div>
+          </div>
+        </div></section>
+
+        <section class="section" style="background:#fff"><div class="container grid two">
+          <div class="card" style="padding:18px">
+            <div class="h3">Request a Referral</div>
+            ${referralForm()}
+          </div>
+          <div>
+            <div class="h3">How Barbara Chooses Referrals</div>
+            <ul class="list"><li>Experience with similar family dynamics or financial profiles</li><li>Training in mediation/collaborative frameworks when relevant</li><li>Availability and geography (virtual or local)</li><li>Independence — you decide whom to engage</li></ul>
+            <p class="notice">Referrals are provided for convenience and are not endorsements or guarantees of outcomes.</p>
+          </div>
+        </div></section>
+      `;
+    }
+
+    function renderPayments(){
+      const app = document.getElementById('app');
+      app.innerHTML = `
+        <section class="hero"><div class="container"><div>
+          <div class="kicker">Billing</div><h1>Payments</h1>
+          <p class="lead">Secure Clio links for invoices and retainers.</p>
+        </div><div></div></div></section>
+        <section class="section"><div class="container">
+          <p><a class="btn ghost" href="https://app.clio.com/link/v2/2/2/4004d1335d02eac720e66ceab766c6cc?hmac=01f13101b7874ff8c689cf3ba6ffbb8673600b050de730be1212d87d13961247" target="_blank" rel="noreferrer">Pay Invoice</a></p>
+          <p><a class="btn ghost" href="https://app.clio.com/link/v2/2/2/a06a3ecd09925210e96f1f7f0e63d8f0?hmac=f68c2e3d1cf08ae26e10c247187023bf4d5cc67702c9f823050b5be5f3f89f10" target="_blank" rel="noreferrer">Pay Retainer</a></p>
+        </div></section>
+      `;
+    }
+
+    // ------- Forms -------
+    function contactForm(preset){
+      return `
+        <form aria-label="Contact form" onsubmit="return submitForm(event, ${preset?`'${preset}'`:'null'})">
+          <label>Full name<input name="name" required autocomplete="name"/></label>
+          <label>Email<input type="email" name="email" required autocomplete="email"/></label>
+          <label>Phone<input name="phone" autocomplete="tel"/></label>
+          <label>Service
+            <select name="service" ${preset? 'disabled' : ''}>
+              <option value="">Select…</option>
+              <option ${preset==='Mediation (Consensual Dispute Resolution)'?'selected':''}>Mediation (Consensual Dispute Resolution)</option>
+              <option ${preset==='Collaborative Divorce'?'selected':''}>Collaborative Divorce</option>
+              <option ${preset==='Prenuptial & Postnuptial Agreements'?'selected':''}>Prenuptial & Postnuptial Agreements</option>
+              <option ${preset==='Divorce'?'selected':''}>Divorce</option>
+              <option ${preset==='Child Custody & Parenting Plans'?'selected':''}>Child Custody & Parenting Plans</option>
+              <option ${preset==='Child & Spousal Support'?'selected':''}>Child & Spousal Support</option>
+              <option ${preset==='Modifications (Post-Judgment)'?'selected':''}>Modifications (Post-Judgment)</option>
+              <option ${preset==='Other / Not sure'?'selected':''}>Other / Not sure</option>
+            </select>
+          </label>
+          <label>Preferred dates/times<input name="times" placeholder="e.g., Weekdays after 2pm"/></label>
+          <label>Briefly describe your matter<textarea name="details" rows="4"></textarea></label>
+          ${preset ? `<input type="hidden" name="service" value="${preset}">` : ''}
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn primary" type="submit">Contact Barbara's Office</button>
+          </div>
+          <p class="notice">This site provides general information only and is not legal advice. Submitting this form does not create an attorney–client relationship.</p>
+        </form>`;
+    }
+
+    function inlineContact(service){
+      return `
+        <div class="h3">Contact Barbara's Office</div>
+        <p class="muted">This form is for <strong>${service}</strong>.</p>
+        ${contactForm(service)}
+      `;
+    }
+
+    function submitForm(e, preset){
+      e.preventDefault();
+      const f = e.target;
+      const data = {
+        name:(f.name||{}).value||'', email:(f.email||{}).value||'', phone:(f.phone||{}).value||'',
+        service: preset || ((f.service||{}).value||''), times:(f.times||{}).value||'', details:(f.details||{}).value||''
+      };
+      const subject = encodeURIComponent("Consultation Request from Website");
+      const body = encodeURIComponent(
+`Service: ${data.service || 'Not specified'}
+Name: ${data.name}
+Email: ${data.email}
+Phone: ${data.phone}
+Preferred times: ${data.times}
+Details: ${data.details}`
+      );
+      const url = `mailto:${INTAKE_EMAIL}?subject=${subject}&body=${body}`;
+      window.open(url, '_blank','noopener');
+      return false;
+    }
+
+    function referralForm(){
+      return `
+        <form onsubmit="return submitReferralForm(event)" aria-label="Referral form">
+          <label>Full name<input name="name" required autocomplete="name"/></label>
+          <label>Email<input type="email" name="email" required autocomplete="email"/></label>
+          <label>Phone<input name="phone" autocomplete="tel"/></label>
+          <label>Preferred dates/times<input name="times" placeholder="e.g., Weekdays after 2pm"/></label>
+          <div class="h3" style="margin-top:8px">What kind of specialist are you looking for?</div>
+          <div class="grid three" style="margin-top:8px">
+            ${['Financial neutral (CDFA®)','Child & family therapist','Co-parenting coach','CPA / tax advisor','Forensic accountant','Real-estate agent / lender','Appraiser / valuation expert','Estate planning attorney','Safety/support resources','Other / not sure'].map(x=>`<label class="card" style="padding:10px"><input type="checkbox" name="refcats" value="${x}" style="margin-right:8px"/>${x}</label>`).join('')}
+          </div>
+          <label>Tell Barbara a bit about your circumstances<textarea name="details" rows="5" placeholder="Brief background, goals, zip code (optional)"></textarea></label>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn primary" type="submit">Request referrals</button>
+          </div>
+          <p class="notice">This form sends a referral inquiry. Submitting it does not create an attorney–client relationship.</p>
+        </form>`;
+    }
+
+    function submitReferralForm(e){
+      e.preventDefault();
+      const f = e.target;
+      const picks = Array.from(f.querySelectorAll('input[name="refcats"]:checked')).map(el=>el.value);
+      const details = `Referral categories: ${picks.join(', ') || 'None selected'}\nCircumstances: ${f.details ? f.details.value : ''}`;
+      const data = {
+        name:(f.name||{}).value||'', email:(f.email||{}).value||'', phone:(f.phone||{}).value||'',
+        service: 'Referral Request', times:(f.times||{}).value||'', details
+      };
+      const subject = encodeURIComponent('Consultation Request from Website');
+      const body = encodeURIComponent(
+`Service: ${data.service}
+Name: ${data.name}
+Email: ${data.email}
+Phone: ${data.phone}
+Preferred times: ${data.times}
+Details: ${data.details}`
+      );
+      const url = `mailto:${INTAKE_EMAIL}?subject=${subject}&body=${body}`;
+      window.open(url, '_blank','noopener');
+      return false;
+    }
+  </script>
+</body>
+</html>
